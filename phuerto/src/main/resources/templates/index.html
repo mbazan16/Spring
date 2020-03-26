@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/screen.css" media="screen" />
+<title>Inicio</title>
+</head>
+<body>
+<div id="content">
+		
+	<div id="logo">
+		<h3><a href="/">Huertos</a></h3>
+		<h3><a href="/maceta">Macetas</a></h3>
+		<h3><a href="/planta">Plantas</a></h3>
+	</div>
+	<div class="line"></div>
+
+     <form action="crear">
+		<h1>Si desea crear un nuevo huerto</h1><br/>
+		<p>
+			<h1>Insertar nombre: </h1> <input type='text' name='nombre' />
+			<input type='submit' name='CrearHuerto' value='Crear' />
+		</p>
+		
+	</form>
+	<div class="line"></div>
+		
+	<div class="left">
+	<h1>Estos son nuestros huertos</h1>
+	<p th:each="huerto : ${huertos}">
+	    <h1><span th:text="'Nombre: ' + ${huerto.nombre}"></span></h1><br/>
+		<h3><a th:href="@{/ver(id=${huerto.id})}">Ver</a></h3>
+		<h3><a th:href="@{/eliminar(id=${huerto.id})}">Eliminar</a></h3>
+	</p>
+	</div>
+</div>
+</body>
+</html>

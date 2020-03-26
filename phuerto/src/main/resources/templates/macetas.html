@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/screen.css" media="screen" />
+<title>Macetas</title>
+</head>
+<body>
+<div id="content">
+		<h1><a href="/">VIVERO</a></h1>
+	<div id="logo">
+		<h3><a href="/">Huertos</a></h3>
+		<h3><a href="/maceta">Macetas</a></h3>
+		<h3><a href="/planta">Plantas</a></h3>
+	</div>
+	<div class="line"></div>
+
+     <form action="/maceta/grabar" method="get">
+		<h1>Si desea crear una nueva maceta</h1><br/>
+		
+		    Insertar tipo:  <select name="tipo">
+    <option th:each="tipoOpt : ${T(com.phuerto.common.TipoMaceta).values()}"
+        th:value="${tipoOpt}" th:text="${tipoOpt}"></option>
+</select>
+			Huerto: <select name="id"> 
+				<option th:if="huerto.id != null" th:each="huerto : ${huertos}"
+					th:value="${huerto.id}" th:text="${huerto.nombre}"></option>
+			</select>
+			<input type='submit' value='Crear' />
+		
+		
+	</form>
+	<div class="line"></div>
+		
+	<div class="left">
+	<h1>Estos son nuestras macetas</h1>
+	<p th:each="maceta : ${macetas}">
+	    <h1><span th:text="'Tipo: ' + ${maceta.tipo}"></span></h1><br/>
+	    <h1><span th:text="'Huerto: ' + ${maceta.huerto.nombre}"></span></h1><br/>
+		<h3><a th:href="@{/maceta/ver(id=${maceta.id})}">Ver</a></h3>
+		<h3><a th:href="@{/maceta/eliminar(id=${maceta.id})}">Eliminar</a></h3>
+	</p>
+	</div>
+</div>
+</body>
+</html>

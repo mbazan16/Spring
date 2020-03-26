@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/screen.css" media="screen" />
+<title>Macetas</title>
+</head>
+<body>
+<div id="content">
+		<h1><a href="/">VIVERO</a></h1>
+	<div id="logo">
+		<h3><a href="/">Huertos</a></h3>
+		<h3><a href="/maceta">Macetas</a></h3>
+		<h3><a href="/planta">Plantas</a></h3>
+	</div>
+	<div class="line"></div>
+
+     <form action="/planta/grabar" method="get">
+		<h1>Si desea crear una nueva planta</h1><br/>
+		
+		    Insertar categoria:  <select name="categoria">
+    <option th:each="categoriaOpt : ${T(com.phuerto.common.Categoria).values()}"
+        th:value="${categoriaOpt}" th:text="${categoriaOpt}"></option>
+</select>
+			Maceta: <select name="id"> 
+				<option th:if="maceta.id != null" th:each="maceta : ${macetas}"
+					th:value="${maceta.id}" th:text="${maceta.tipo + ' ' + maceta.huerto.nombre }"></option>
+			</select>
+			<input type='submit' value='Crear' />
+		
+		
+	</form>
+	<div class="line"></div>
+		
+	<div class="left">
+	<h1>Estas son nuestras plantas</h1>
+	<p th:each="planta : ${plantas}">
+	    <h1><span th:text="'Categoria: ' + ${planta.categoria}"></span></h1><br/>
+	    <h1><span th:text="'Tipo: ' + ${planta.maceta.tipo}"></span></h1><br/>
+	    <h1><span th:text="'Huerto: ' + ${planta.maceta.huerto.nombre}"></span></h1><br/>
+		<h3><a th:href="@{/planta/ver(id=${planta.id})}">Ver</a></h3>
+		<h3><a th:href="@{/planta/eliminar(id=${planta.id})}">Eliminar</a></h3>
+	</p>
+	</div>
+</div>
+</body>
+</html>

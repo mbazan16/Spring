@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/screen.css"
+	media="screen" />
+
+</head>
+<body>
+	<div id="content">
+
+		<div id="logo">
+			<h1>Huerto</h1>
+		</div>
+		<div class="line"></div>
+
+		
+		<p>
+			<span th:text="'Nombre:' + ${huerto.nombre}" />
+		</p>
+		<form action="/grabar" method="post">	
+		   <input type='hidden' th:field="${huerto.id}" />		
+			<h1>Si desea modificar el nombre</h1>
+			<br/>
+			<p>
+				<b>Insertar nombre: </b> <input type='text' th:field="${huerto.nombre}" /> <input
+					type='submit' name='ModificarHuerto' value='Modificar' />
+			</p>
+		</form>
+		<h3><a href="./maceta">Macetas</a></h3>
+		
+		<p th:each="maceta : ${macetas}">
+	    <span th:text="'Id: ' + ${maceta.id}"></span><br/>
+		<span th:text="'Nombre: ' + ${maceta.tipo}"></span><br/>
+		<h3><a th:href="@{./maceta/ver(id=${maceta.id})}">Ver</a></h3>
+		</p>
+	</div>
+		<h3>
+			<a href="/">Volver</a>
+		</h3>
+
+</body>
+</html>

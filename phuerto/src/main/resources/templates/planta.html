@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="css/screen.css"
+	media="screen" />
+
+</head>
+<body>
+	<div id="content">
+
+		<div id="logo">
+			<h1>Planta</h1>
+		</div>
+		<div class="line"></div>
+
+		
+		<p>
+			<span th:text="'Categoria: ' + ${planta.categoria}" />
+			<span th:text="'Maceta: ' + ${planta.maceta.tipo}" />
+			<span th:text="'Huerto: ' + ${planta.maceta.huerto.nombre}" />
+		</p>
+		<form action="/planta/modificarCategoria" >	
+		   <input type='hidden' th:field="${planta.id}" />		
+			<h1>Si desea modificar el tipo</h1>
+			<br/>
+			<p>
+				<b>Seleccionar categoria: </b> <input type='text' th:field="${planta.categoria}" /> <input
+					type='submit' name='ModificarCategoria' value='Modificar' />
+			</p>
+		</form>
+		<form action="/planta/modificarMaceta" >	
+		   <input type='hidden' th:field="${planta.id}" />		
+			<h1>Si desea modificar la maceta</h1>
+			<br/>
+			<p>
+				<b> Seleccionar maceta:</b><select name="idMaceta"> 
+				<option th:if="maceta.id != null" th:each="maceta: ${macetas}"
+					th:value="${maceta.id}" th:text="${maceta.tipo + ' ' + maceta.huerto.nombre }"></option>
+			</select><input
+					type='submit' name='ModificarMaceta' value='Modificar' />
+			</p>
+		</form>
+	</div>
+		<h3>
+			<a href="/">Volver</a>
+		</h3>
+
+</body>
+</html>
