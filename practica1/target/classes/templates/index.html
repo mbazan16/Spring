@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="css/screen.css" media="screen" />
+<title>Inicio</title>
+</head>
+<body>
+<div id="content">
+		<p id="top">Bienvenido a la librería</p>
+	<div id="logo">
+		<h1><a href="index.html">Librería</a></h1>
+	</div>
+	<div class="line"></div>
+
+	<h1>Si desea insertar un nuevo libro a nuestro catalogo, pulse el siguiente enlace</h1><br/>	
+	<h3><a href="/nuevoLibro">Insertar nuevo libro</a></h3><br/>
+	<div class="line"></div>
+
+
+	<div class="left">
+	<h2>Tambien puede realizar busquedas por diferentes parametros</h2>
+	<br/>
+	
+	<form action="/mostrarPorTitulo" method="get">
+		<h3>Buscar libro por titulo</h3>
+		<p>
+			<b>Insertar titulo: </b> <input type='text' name='titulo' />
+			<input type='submit' name='buscarTitulo' value='Buscar' />
+		</p>
+		
+	</form>
+
+	<form action="/mostrarPorAutor" method="get">
+		<h3>Buscar libro por autor</h3>
+		<p>
+			<b>Insertar autor: </b> <input type='text' name='autor' />
+			<input type='submit' name='buscarAutor' value='Buscar' />
+		</p>
+		
+	</form>
+	
+	<form action="/mostrarPorCategoria" method="get">
+		<h3>Buscar libro por categoria</h3>
+		<p>
+			<b>Insertar categoria: </b> <input type='text' name='categoria' />
+			<input type='submit' name='buscarCategoria' value='Buscar' />
+		</p>
+		
+	</form>
+	
+	<form action="/mostrarPorIsbn" method="get">
+		<h3>Buscar libro por ISBN</h3>
+		<p>
+			<b>Insertar ISBN: </b> <input type='text' name='isbn' />
+			<input type='submit' name='buscarISBN' value='Buscar' />
+		</p>
+		
+	</form>
+	
+	
+	<form action="/mostrarPorEditorial" method="get">
+		<h3>Buscar libro por editorial</h3>
+		<p>
+			<b>Insertar editorial: </b> <input type='text' name='nombre' />
+			<input type='submit' name='buscarEditorial' value='Buscar' />
+		</p>
+		
+	</form>
+	
+	<form action="/mostrarPorPrecio" method="get">
+		<h3>Buscar libro por precio</h3>
+		<p>
+			<b>Insertar precio: </b> <input type='text' name='precio' />
+			<input type='submit' name='buscarPrecio' value='Buscar' />
+		</p>
+		
+	</form>
+	
+	<form action="/mostrarEditorial" method="get">
+		<h3>Buscar una editorial</h3>
+		<p>
+			<b>Insertar nombre de la editorial: </b> <input type='text' name='nombre' />
+			<input type='submit' name='buscarEd' value='Buscar' />
+		</p>
+		
+	</form>
+	</div>
+		
+	<div class="right">
+	<h4>Este es nuestro catalogo</h4>
+	<p th:each="libro : ${libros}">
+		<span th:text="'Titulo: ' + ${libro.titulo}"></span><br/>
+		<span th:text="'Autores: '+ ${libro.autor}"></span><br/>
+		<a th:href="@{/mostrarPorTitulo(titulo=${libro.titulo})}">Ver</a>
+	</p>
+	</div>
+</div>
+</body>
+</html>

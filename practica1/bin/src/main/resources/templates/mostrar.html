@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<p th:each="libro : ${libros}">
+		<h2 th:text="'\'' + ${libro.titulo} + '\' de ' + ${libro.autor}"/>
+		<h4>Datos del libro</h4>
+		<p>
+			<span  th:text="'Titulo:' + ${libro.titulo}" /> <a href="/modificar.html">Modificar</a> <br/> 
+			<span th:text="'Autor:' + ${libro.autor}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Anyo de publicacion:' + ${libro.fecha}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Numero de paginas:' + ${libro.numPaginas}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'ISBN:' + ${libro.isbn}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Precio de venta:' + ${libro.precioVenta}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Categoria:' + ${libro.categoria}" /> <a href="/modificar.html">Modificar</a> <br/>
+		</p>
+		<h4>Datos de la editorial</h4>
+		<p>
+			<span th:text="'Nombre editorial:' + ${libro.editorial.nombre}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Telefono editorial:' + ${libro.editorial.telefono}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Email de contacto de la editorial:' + ${libro.editorial.email}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Codigo postal de la editorial:' + ${libro.editorial.codigoPostal}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Codigo de identificacion fiscal de la editorial:' + ${libro.editorial.codIF}" /> <a href="/modificar.html">Modificar</a> <br/>
+		</p>
+		
+	</p>
+
+	<a href="/">Volver</a>
+	
+</body>
+</html>

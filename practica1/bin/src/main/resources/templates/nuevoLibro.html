@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Insertar libro</title>
+</head>
+<body>
+	<h1>Insertar nuevo libro al catalogo</h1>
+	
+	<form action="/insertar" method="post">
+		<h2>Datos del libro</h2>
+		Editorial: <select name="nombre"> 
+				<option th:if="editorial.id != null" th:each="editorial : ${editoriales}"
+					th:value="${editorial.nombre}" th:text="${editorial.nombre}"></option>
+			</select> 
+			<a href="/nuevaEditorial">Registrar nueva editorial</a>
+		<p>
+			<b>Autor:</b> <input type='text' name='autor' />
+		</p>
+		<p>
+			<b>Titulo:</b> <input type='text' name='titulo' />
+		</p>
+		<p>
+			<b>Numero de paginas:</b> <input type='text' name='numPaginas' />
+		</p>
+		<p>
+			<b>Fecha de publicacion:</b> <input type='text' name='fecha' />
+		</p>
+		<p>
+			<b>ISBN:</b> <input type='text' name='isbn' />
+		</p>
+		<p>
+			<b>Precio de venta:</b> <input type='text' name='precioVenta' />
+		</p>
+		<p>
+			<b>Categoria:</b> <input type='text' name='categoria' />
+		</p>
+		
+		<input type='submit' name='insertar' value='Insertar' />
+	</form>
+</body>
+</html>

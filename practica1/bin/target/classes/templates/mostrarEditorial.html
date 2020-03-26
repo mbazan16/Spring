@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<p th:each="libro : ${libros}">
+		<h1>Datos de la editorial</h1>
+		<p>
+			<span th:text="'Nombre editorial:' + ${libro.editorial.nombre}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Telefono editorial:' + ${libro.editorial.telefono}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Email de contacto de la editorial:' + ${libro.editorial.email}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Codigo postal de la editorial:' + ${libro.editorial.codigoPostal}" /> <a href="/modificar.html">Modificar</a> <br/>
+			<span th:text="'Codigo de identificacion fiscal de la editorial:' + ${libro.editorial.codIF}" /> <a href="/modificar.html">Modificar</a> <br/>
+		</p>
+		
+	</p>
+
+	<a href="/">Volver</a>
+	
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:each="libro : ${libros}">
+		<span th:text="'Titulo: ' + ${libro.titulo}"></span><br/>
+		<span th:text="'Autores: '+ ${libro.autor}"></span><br/>
+		<a th:href="@{/mostrarPorTitulo(titulo=${libro.titulo})}">Ver</a>
+	</p>
+</body>
+</html>

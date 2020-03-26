@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: practica1
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: MARIA
+Implementation-Vendor-Id: es.sd
+Build-Jdk: 1.8.0_60
+Implementation-URL: http://projects.spring.io/spring-boot/practica1/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

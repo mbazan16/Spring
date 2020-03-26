@@ -1,0 +1,35 @@
+<html>
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+
+	<h1>Insertar nueva editorial</h1>
+
+	<form action="/nuevaEditorial" method="post">
+		<p>
+			<b>Nombre de la editorial:</b> <input type='text' name='nombre' />
+		</p>
+	
+		<p>
+			<b>Telefono:</b> <input type='text' name='telefono' />
+		</p>
+
+	    <p>
+			<b>Email:</b> <input type='text' name='email' />
+		</p>
+		
+		<p>
+			<b>Codigo postal:</b> <input type='text' name='codigoPostal' />
+		</p>
+		
+		<p>
+			<b>Codigo de identificacion fiscal:</b> <input type='text' name='codIF' />
+		</p>
+
+		<input type='submit' value='Enviar' />
+	</form>
+	
+	<a href="/nuevoLibro">Volver</a>
+</body>
+</html>
