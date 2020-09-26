@@ -29,10 +29,6 @@ public class HuertoController {
 	@RequestMapping("/")
 	public String huertos(Model model) {
 		logger.info("Method [huertos]");
-		logger.trace("TRAZA QUE SE VE TRACE");
-		logger.debug("TRAZA QUE SE VE DEBUG");
-		logger.info("TRAZA QUE SE VE INFO");
-		logger.warn("TRAZA QUE SE VE WARN");
 
 		model.addAttribute("huertos", getHuertos());
 
