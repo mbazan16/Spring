@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -124,36 +125,7 @@ public class LibroController {
 		return "mostrarEditorial";
 	}
 	
-	@RequestMapping("/modificar")
-	public String modificar(Model model){
-		
-		return "modificar";
-	}
 	
-	@RequestMapping("/modificarLibro")
-	public String modificarLibro(Model model, Libro libro, Editorial editorial){
-		
-		repositorioLibros.setTituloByIsbn(libro.getTitulo(), libro.getIsbn());
-		repositorioLibros.setAutorByIsbn(libro.getAutor(), libro.getIsbn());
-		repositorioLibros.setNumPaginasByIsbn(libro.getNumPaginas(), libro.getIsbn());
-		repositorioLibros.setPrecioVentaByIsbn(libro.getPrecioVenta(), libro.getIsbn());
-		repositorioLibros.setCategoriaByIsbn(libro.getCategoria(), libro.getIsbn());
-		repositorioLibros.setFechaByIsbn(libro.getFecha(), libro.getIsbn());
-		
-		repositorioEditoriales.setNombreByCodIF(editorial.getNombre(), editorial.getCodIF());
-		repositorioEditoriales.setTelefonoByCodIF(editorial.getTelefono(), editorial.getCodIF());
-		repositorioEditoriales.setCodigoPostalByCodIF(editorial.getCodigoPostal(), editorial.getCodIF());
-		repositorioEditoriales.setEmailByCodIF(editorial.getEmail(), editorial.getCodIF());
-		
-		repositorioEditoriales.save(editorial);
-		
-		repositorioLibros.setEditorialByIsbn(libro.getEditorial(), libro.getIsbn());
-		
-		
-		repositorioLibros.save(libro);
-		
-		return "modificado";
-	}
 	
 	@PostConstruct
 	public void init()
