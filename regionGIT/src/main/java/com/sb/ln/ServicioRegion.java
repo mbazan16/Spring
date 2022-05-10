@@ -39,5 +39,25 @@ public class ServicioRegion implements IServicioRegion {
 		}
 		return regiones;
 	}
+	@Override
+	public void crearRegion(String nombre) throws ServicioException {
+		log.info("crearRegion");
+		log.debug("nombre:"+nombre);
+		try {
+			Region region = new Region();
+			int id=0;
+			for(Region regionAux:dao.findAll()) {
+				if(id<regionAux.getId()) id=regionAux.getId();
+			}
+			region.setId(++id);
+			region.setNombre(nombre);
+			dao.save(region);
+			
+		} catch (Exception e) {
+			log.error(e.getMessage(),e);
+			throw new ServicioException(CodeException.EXEPCION_GENERAL);
+		}
+
+	}
 
 }

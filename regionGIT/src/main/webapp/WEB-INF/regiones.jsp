@@ -71,7 +71,20 @@ $(document).ready( function () {
 </tbody>
 </table>
 </div>
+<div id="crearRegion">
+<h1><fmt:message key="region.crear"/></h1>
+<form method="post" action="${context}/region/n">
+<label for="nombre"><fmt:message key="label.nombre"/></label>
+<input type="text" name="nombre" required>
+<button><fmt:message key="button.enviar"/></button>
+</form>
 
+</div>
+<div id="messages">
+<c:if test="${message!=null}">
+	${message}
+</c:if>
+</div> 
 </main>
 <footer>
 

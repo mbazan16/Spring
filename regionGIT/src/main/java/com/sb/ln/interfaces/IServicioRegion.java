@@ -7,5 +7,6 @@ import com.sb.ln.exceptions.ServicioException;
 public interface IServicioRegion {
 	
 	public Iterable<Region> mostrarRegiones() throws ServicioException;
+	public void crearRegion(String nombre) throws ServicioException;
 	
 }
