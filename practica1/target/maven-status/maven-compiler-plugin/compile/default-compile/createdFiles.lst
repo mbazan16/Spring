@@ -1,0 +1,7 @@
+com\example\demo\LibroController.class
+com\example\demo\EditorialController.class
+com\example\demo\Libro.class
+com\example\demo\Practica1Application.class
+com\example\demo\LibrosRepository.class
+com\example\demo\Editorial.class
+com\example\demo\EditorialesRepository.class
