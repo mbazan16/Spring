@@ -1,0 +1,71 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+ <link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}">
+<meta charset="ISO-8859-1">
+<title>Regiones</title>
+<script>
+ function verModificar(id,nombre){
+   document.getElementById("crearRegion").style.display="none";
+   document.getElementById("modificarRegion").style.display="block";
+   document.getElementById("formModificar").id.value=id;
+   document.getElementById("formModificar").nombre.value=nombre;
+ }
+ function modificar(){
+	 document.getElementById("crearRegion").style.display="block";
+	 document.getElementById("modificarRegion").style.display="none";
+	 
+	 document.getElementById("formModificar").submit();
+ }
+</script>
+
+</head>
+<body>
+
+<header>
+ 
+</header>
+<main>
+<div id="listadoRegiones">
+<h1>Regiones Thymeleaf</h1>
+<table>
+<tr>
+	<th>Nombre</th>
+	<th>Acciones</th>
+</tr>
+<tr th:each="region:${listado}">
+<td th:text="${region.nombre}" > </td> 
+<td><a th:href="@{'/region/d/'+${region.id}}">
+		<img th:src="@{/img/eliminar.png}" width="10" height="10"></a>
+	&nbsp;&nbsp;&nbsp;
+	<img th:src="@{/img/lapiz.png}" width="10" height="10" th:attr="onClick=|verModificar(${region.id},'${region.nombre}')|">
+	</td>
+</tr>
+</table>
+</div>
+
+<div id="crearRegion">
+<h1>Crear Region</h1>
+<form method="post" th:action="@{/region/n}">
+<label for="nombre">Nombre</label>
+<input type="text" name="nombre" required>
+<button>Enviar</button>
+</form>
+</div>
+
+<div id="modificarRegion" style="display:none">
+<h1>Modificar Region</h1>
+<form id="formModificar"  method="post" th:action="@{/region/u}">
+ <input type="hidden" name="id">
+<label for="nombre">Nombre</label>
+<input type="text" name="nombre" required>
+<input type="button" value="Modificar" onClick="modificar()"/>
+</form>
+</div>
+
+
+</main>
+<footer></footer>
+
+</body>
+</html>
